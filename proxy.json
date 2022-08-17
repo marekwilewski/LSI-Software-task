@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://api.nbp.pl/api/exchangerates/tables/A/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
