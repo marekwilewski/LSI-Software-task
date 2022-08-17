@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { catchError, map, Observable, of } from 'rxjs';
@@ -21,12 +20,13 @@ export class CurrencyTableComponent implements OnInit {
 
 
 
-  constructor(private restApiService: RestApiService, private datePipe: DatePipe) { }
+  constructor(private restApiService: RestApiService) { }
 
   ngOnInit() {
     this.getAllExchangeRates();
     this.exchangeRateDate.valueChanges.subscribe(() => {
-      const selectedDate = this.datePipe.transform(this.exchangeRateDate.value, "yyyy-MM-dd");
+      console.log(this.exchangeRateDate.valid);
+      const selectedDate = this.exchangeRateDate.value;
       if (selectedDate) {
         this.getExchangeRatesByDate(selectedDate);
       } else {
