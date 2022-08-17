@@ -4,7 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { catchError, map, Observable, of } from 'rxjs';
 import { RestApiService } from 'src/app/services/rest-api.service';
 
-const datePattern = "(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])";
+const datePattern = '(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])';
 
 @Component({
   selector: 'app-currency-table',
@@ -18,8 +18,6 @@ export class CurrencyTableComponent implements OnInit {
   public exchangeRates$: Observable<any> = new Observable<[]>;
 
   public exchangeRateDate = new FormControl<string>('', Validators.pattern(datePattern));
-
-  // public datePattern = "^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$";
 
 
 
